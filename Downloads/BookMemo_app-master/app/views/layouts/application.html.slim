@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title
+      | 読書メモアプリ
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application'
+  body
+    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+      .navbar-brand
+        - if current_user
+          | #{current_user.name}さんの
+        | BookMemo
+      
+      ul.navbar.nav.ml-auto
+        - if current_user
+          li.nav-item= link_to 'みんなの読書メモを見る', allmemos_path, class: 'nav-link'
+          li.nav-item= link_to '読書メモ一覧', memos_path, class: 'nav-link'
+          - if current_user.admin?
+           li.nav-item= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
+          li.nav-item= link_to 'プロフィール編集', edit_admin_user_path(current_user), class: 'nav-link'
+          li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+          - if current_user.image.attached?  
+           li.navbar-brand= image_tag current_user.image, id: 'navbar-brand'
+          - else
+           li.navbar-brand= image_tag 'sobakasu_boy.png', id: 'navbar-brand'
+        - else
+          li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'
+    .container
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
+    = yield

@@ -1,0 +1,23 @@
+- if user.errors.present?
+  ul#error_explanation
+    - user.errors.full_messages.each do |message|
+      li = message
+
+= form_with model: [:admin, @user], local: true do |f|
+  .form-group
+    div.text-center
+      | ユーザー名
+    = f.text_field :name, class: 'form-control mx-auto w-50'
+  .form-group
+    div.text-center
+      | メールアドレス
+    = f.text_field :email, class: 'form-control mx-auto w-50'
+  .form-group
+    div.text-center
+      | パスワード
+    = f.password_field :password, class: 'form-control mx-auto w-50'
+  .form-group
+    div.text-center
+      | パスワード（確認）
+    = f.password_field :password_confirmation, class: 'form-control mx-auto w-50'
+  = f.submit '登録する', class: 'btn btn-info mx-auto d-block w-25'

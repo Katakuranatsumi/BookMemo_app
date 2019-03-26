@@ -1,0 +1,6 @@
+h2 読書メモ新規登録
+
+.nav.justify-content-end
+  = link_to 'メモ一覧に戻る', memos_path, class: 'btn btn-info mr-4 mb-4'
+  
+= render partial: 'form', locals: { memo: @memo }

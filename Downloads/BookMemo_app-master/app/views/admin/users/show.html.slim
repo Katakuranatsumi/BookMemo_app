@@ -1,0 +1,27 @@
+h2 #{@user.name}さんのユーザー情報
+
+.nav.justify-content-end
+ = link_to 'ユーザー一覧に戻る', admin_users_path, class: 'btn btn-info float-right mr-4 mb-4'
+ 
+table.table.table-hover.users_show
+  tbody
+    tr
+       th= User.human_attribute_name(:image)
+       - if @user.image.attached?  
+        td= image_tag @user.image, :size => '250x270'
+       - else
+        td= image_tag 'sobakasu_boy.png', :size => '250x270'
+    tr
+       th= User.human_attribute_name(:name)
+       td= @user.name
+    tr
+       th= User.human_attribute_name(:email)
+       td= @user.email
+    tr
+       th= User.human_attribute_name(:introduce)
+       td= @user.introduce
+      
+.user_edit      
+   = link_to '編集', edit_admin_user_path, class: 'btn btn-info mr-3'
+   = link_to '削除', [:admin, @user], method: :delete, data: { confirm: "「#{@user.name}」を削除します。よろしいですか?"}, class: 'btn btn-warning'
+      

@@ -1,0 +1,27 @@
+- if memo.errors.present?
+  ul#error_explanation
+    - memo.errors.full_messages.each do |message|
+      li = message
+
+= form_with model: memo, local: true do |f|
+  .form-group
+    div.text-center
+      | 書籍名
+    = f.text_field :bookname, class: 'form-control w-50 mx-auto', placeholder: '書籍名', id: 'memo_bookname'
+  .form-group
+    div.text-center
+      | 作家名
+    = f.text_field :author, class: 'form-control w-50 mx-auto', placeholder: '作家名', id: 'memo_author'
+  .form-group
+    div.text-center
+      | カテゴリー
+    = f.text_field :category, placeholder: 'カテゴリー', class: 'form-control w-50 mx-auto'
+  .form-group
+    div.text-center 
+      | 読書メモ
+    = f.text_area :memo, rows:5, class: 'form-control w-50 mx-auto', placeholder: 'メモ', id: 'memo_memo'
+  .form-check.memos_private
+    = f.label :private, class: 'form-check-label' do
+      = f.check_box :private, class: 'form-check-input　ml-5'
+      | 公開
+  = f.submit nil, class: 'btn btn-info mx-auto d-block w-25 mt-4'
