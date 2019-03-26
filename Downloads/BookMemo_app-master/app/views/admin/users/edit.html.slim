@@ -1,0 +1,41 @@
+h2 プロフィール編集
+
+.nav.justify-content-end
+ - if current_user.admin?
+  = link_to 'ユーザー一覧に戻る', admin_users_path, class: 'btn btn-info float-right mr-4 mb-4'
+
+- if @user.errors.present?
+  ul#error_explanation
+    - @user.errors.full_messages.each do |message|
+      li = message
+
+= form_with model: [:admin, @user], local: true do |f|
+  .form-group
+    div.text-center
+      | プロフィール画像
+    = f.file_field :image, class: 'form-control mx-auto w-50'
+  .form-group
+    div.text-center
+      | ユーザー名
+    = f.text_field :name, class: 'form-control mx-auto w-50'
+  .form-group
+    div.text-center
+      | メールアドレス
+    = f.text_field :email, class: 'form-control mx-auto w-50'
+  .form-group
+    div.text-center
+      | 自己紹介
+    = f.text_area :introduce, rows: 3, class: 'form-control mx-auto w-50'
+  .form-group
+    div.text-center
+      | パスワード
+    = f.password_field :password, class: 'form-control mx-auto w-50'
+  .form-group
+    div.text-center
+      | パスワード（確認）
+    = f.password_field :password_confirmation, class: 'form-control mx-auto w-50'
+  .form-check.users_admin
+    = f.label :admin, class: 'form-check-label' do
+      = f.check_box :admin, class: 'form-check-input　ml-5'
+      | 管理者権限   
+  = f.submit '登録する', class: 'btn btn-info mx-auto d-block w-25 mt-4'

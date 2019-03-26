@@ -1,0 +1,25 @@
+h2 みんなの読書メモ
+
+- @memos.each do |memo|
+  - if memo.private?
+    div.allmemo_block
+      div.allmemo_profile
+        - if memo.user.image.attached?
+         div= image_tag memo.user.image, class: 'allmemo_image'
+        - else
+         div= image_tag 'sobakasu_boy.png', class: 'allmemo_image'
+      div.allmemo_font
+        p.mt-3= link_to memo.user.name, allmemo_path(memo)
+        p= memo.created_at
+      div.allmemo_book
+        div= '書籍名：'
+        div= memo.bookname
+      div.allmemo_author
+        div= '作家名：'   
+        div= memo.author
+      div.allmemo_memo
+        div= '読書メモ：'
+        div.mb-3= memo.memo
+      div.allmemo_category
+        div= 'カテゴリー：'
+        div.mb-3= memo.category

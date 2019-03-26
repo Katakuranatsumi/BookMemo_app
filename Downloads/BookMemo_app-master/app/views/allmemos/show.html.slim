@@ -1,0 +1,19 @@
+h2 #{@memo.user.name}さんのユーザー情報
+
+.nav.justify-content-end
+ = link_to 'みんなの読書メモに戻る', allmemos_path, class: 'btn btn-info float-right mr-4 mb-4'
+
+table.table.table-hover.users_show.mt-5
+  tbody
+    tr
+       th= User.human_attribute_name(:image)
+       - if @memo.user.image.attached?  
+        td= image_tag @memo.user.image, :size => '250x270'
+       - else
+        td= image_tag 'sobakasu_boy.png', :size => '250x270'
+    tr
+       th= User.human_attribute_name(:name)
+       td= @memo.user.name
+    tr
+       th= User.human_attribute_name(:introduce)
+       td= @memo.user.introduce

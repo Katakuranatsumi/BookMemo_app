@@ -1,0 +1,141 @@
+@import "bootstrap";
+
+body {
+  background-color:floralwhite;    
+}
+
+h2 {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.login_form {
+  text-align: center;
+}
+
+//application.html.slim
+
+#navbar-brand {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+//-sessions-new.html.slim
+
+.bookmemo_dispriction {
+  background-image: url("../images/open-book-1428428_640.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 400px;
+}
+
+.top_p {
+  padding-top: 40px;
+  text-align: center;
+  color: white;
+  font-size: 17px;    
+}
+
+.login_p {
+  text-align: center;
+  color: white;
+  font-size: 17px;    
+}
+
+
+.login_form {
+  text-align: center;
+}
+
+//-allmemo- index.html.slim
+.allmemo_block {
+  margin-top: 70px;    
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  background-color: white;
+}
+
+.allmemo_image {
+  width: 120px;
+  height: 120px;    
+  object-fit: contain;  
+}
+
+.allmemo_profile {
+  display: flex;
+  border-bottom: thin solid lightgray;      
+}
+
+.allmemo_font {
+  font-size: 20px;    
+}
+
+.allmemo_book {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 18px;   
+}
+
+.allmemo_author {
+  display: flex;
+  margin-left: 20px;
+  font-size: 18px;       
+}
+
+.allmemo_memo {
+  padding-left:20px;
+  margin-top: 15px;
+  font-size: 21px;
+  border-bottom: thin solid lightgray;      
+}
+
+.allmemo_category {
+  margin-left: 20px;
+  margin-top: 10px;
+  display: flex;
+  font-size: 15px;
+  color: darkcyan;
+}
+
+//-memo-show.html.slim
+
+.memos_show {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;    
+}
+
+.memo_btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+//-user-edit.html.slim
+
+.users_admin {
+  width: 150px;
+  margin: 0 auto; 
+}
+
+//-user-show.html.slim
+
+.users_show {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;    
+}
+
+.user_edit {
+ text-align: center;
+ margin-top: 20px;
+}
+
+//-memos-_form.html.slim
+
+.memos_private {
+  width: 100px;
+  margin: 0 auto;
+}

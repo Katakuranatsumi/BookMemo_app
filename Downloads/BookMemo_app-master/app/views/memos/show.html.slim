@@ -1,0 +1,26 @@
+h2 読書メモ
+
+.nav.justify-content-end
+  = link_to '読書メモ一覧に戻る', memos_path, class: 'btn btn-info float-right mr-4 mb-4'
+  
+table.table.table-hover.memos_show
+  tbody
+    tr
+      th= Memo.human_attribute_name(:created_at)
+      td= @memo.created_at
+    tr
+      th= Memo.human_attribute_name(:bookname)
+      td= @memo.bookname
+    tr
+      th= Memo.human_attribute_name(:author)
+      td= @memo.author
+    tr
+      th= Memo.human_attribute_name(:category)
+      td= @memo.category
+    tr
+      th= Memo.human_attribute_name(:memo)
+      td= simple_format(h(@memo.memo), {}, sanitize: false, wrapper_tag: "div")
+
+div.memo_btn
+  = link_to '編集', edit_memo_path, class: 'btn btn-info mr-3'
+  = link_to '削除', @memo, method: :delete, data: { confirm: "「#{@memo.bookname}」を削除します。よろしいですか？"}, class: 'btn btn-warning'

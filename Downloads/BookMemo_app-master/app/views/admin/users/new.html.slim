@@ -1,0 +1,9 @@
+h2 ユーザー登録
+
+.nav.justify-content-end
+ - if current_user
+   = link_to 'ユーザー一覧に戻る', admin_users_path, class: 'btn btn-info float-right mr-4 mb-4'
+ - else
+   = link_to 'TOP画面に戻る', login_path, class: 'btn btn-info float-right mr-4 mb-4'
+
+= render partial: 'form', locals: { user: @user}

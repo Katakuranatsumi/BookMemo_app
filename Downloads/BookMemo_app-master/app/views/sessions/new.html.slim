@@ -1,0 +1,22 @@
+div.bookmemo_dispriction
+ p.top_p
+   | BooKMemoは読んだ本のメモができるサービスです。
+ p.login_p   
+   | 好きな本の文章をメモして管理することもできますし、
+ p.login_p 
+   | 本の感想をみんなに公開することもできます。
+
+h2 BookMemoにログイン
+
+.login_form
+ = form_with scope: :session, local: true do |f|
+   .form-group
+     = f.label :email, 'メールアドレス'
+     = f.text_field :email, class: 'form-control w-25 mx-auto', id: 'session_email'
+   .form-group
+     = f.label :password, 'パスワード'
+     = f.text_field :password, class: 'form-control w-25 mx-auto', id: 'session_password'
+   = f.submit 'ログイン', class: 'btn btn-info'
+   =link_to '新規登録', new_admin_user_path, class:'btn btn-danger'
+   
+=link_to 'みんなの読書メモを見てみる', allmemos_path, class: 'btn btn-primary mx-auto d-block w-25 mt-3'
