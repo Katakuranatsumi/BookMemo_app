@@ -71,4 +71,6 @@ gem 'carrierwave'
 # gem 'rmagick', '~> 2.16.0'
 gem 'webpacker'
 gem 'azure-storage', require: false
-gem 'simple_calendar', '~> 2.3.0'
+gem 'fullcakendar-rails'
+gem 'momentjs-rails'
+gem 'jquery-rails'
